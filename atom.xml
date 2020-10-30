@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://github.com/Yeolar/IR</id>
+    <id>https://yeolar.github.io</id>
     <title>互联网调研</title>
-    <updated>2020-10-30T13:21:35.629Z</updated>
+    <updated>2020-10-30T13:25:38.523Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://github.com/Yeolar/IR"/>
-    <link rel="self" href="https://github.com/Yeolar/IR/atom.xml"/>
+    <link rel="alternate" href="https://yeolar.github.io"/>
+    <link rel="self" href="https://yeolar.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://github.com/Yeolar/IR/images/avatar.png</logo>
-    <icon>https://github.com/Yeolar/IR/favicon.ico</icon>
+    <logo>https://yeolar.github.io/images/avatar.png</logo>
+    <icon>https://yeolar.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 互联网调研</rights>
     <entry>
         <title type="html"><![CDATA[互联网调研]]></title>
-        <id>https://github.com/Yeolar/IR/post/intro/</id>
-        <link href="https://github.com/Yeolar/IR/post/intro/">
+        <id>https://yeolar.github.io/post/intro/</id>
+        <link href="https://yeolar.github.io/post/intro/">
         </link>
         <updated>2020-10-30T13:15:39.000Z</updated>
         <content type="html"><![CDATA[<p>写点东西</p>
