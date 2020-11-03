@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yeolar.github.io</id>
     <title>互联网调研</title>
-    <updated>2020-11-03T14:27:58.998Z</updated>
+    <updated>2020-11-03T14:29:03.973Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yeolar.github.io"/>
     <link rel="self" href="https://yeolar.github.io/atom.xml"/>
@@ -162,7 +162,10 @@
         <link href="https://yeolar.github.io/post/yun-ji-suan-yu-ren-gong-zhi-neng/">
         </link>
         <updated>2020-10-30T13:54:09.000Z</updated>
+        <summary type="html"><![CDATA[<p>我今天要讲这三个话题，一个是云计算，一个大数据，一个人工智能，我为什么要讲这三个东西呢？因为这三个东西现在非常非常的火，它们之间好像互相有关系，一般谈云计算的时候也会提到大数据，谈人工智能的时候也会提大数据，谈人工智能的时候也会提云计算。所以说感觉他们又相辅相成不可分割，如果是非技术的人员来讲可能比较难理解说这三个之间的相互关系，所以有必要解释一下。</p>
+]]></summary>
         <content type="html"><![CDATA[<p>我今天要讲这三个话题，一个是云计算，一个大数据，一个人工智能，我为什么要讲这三个东西呢？因为这三个东西现在非常非常的火，它们之间好像互相有关系，一般谈云计算的时候也会提到大数据，谈人工智能的时候也会提大数据，谈人工智能的时候也会提云计算。所以说感觉他们又相辅相成不可分割，如果是非技术的人员来讲可能比较难理解说这三个之间的相互关系，所以有必要解释一下。</p>
+<!-- more -->
 <h1 id="一-云计算最初是实现资源管理的灵活性">一、云计算最初是实现资源管理的灵活性</h1>
 <p>我们首先来说云计算，云计算最初的目标是对资源的管理，管理的主要是计算资源，网络资源，存储资源三个方面。</p>
 <figure data-type="image" tabindex="1"><img src="https://yeolar.github.io/post-images/1604066295169.jpeg" alt="" loading="lazy"></figure>
@@ -496,15 +499,6 @@ Electronic Numerical Integrator And Computer</p>
 <p>后来《财富》杂志10大最具头脑人物授予其“最聪明的工程师”称号</p>
 <p>于是，就有了本文开头施密特发表的讲话。</p>
 <p>至此，云计算揭开了神秘的面纱，正式来到了公众的面前。随后的云计算，进入了快速发展阶段，并最终渗透到了我们工作和生活的各个领域。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[互联网调研]]></title>
-        <id>https://yeolar.github.io/post/intro/</id>
-        <link href="https://yeolar.github.io/post/intro/">
-        </link>
-        <updated>2020-10-30T13:15:39.000Z</updated>
-        <content type="html"><![CDATA[<p>写点东西</p>
 ]]></content>
     </entry>
 </feed>
