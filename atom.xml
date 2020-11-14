@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yeolar.github.io</id>
     <title>互联网调研</title>
-    <updated>2020-11-14T11:33:20.980Z</updated>
+    <updated>2020-11-14T11:59:02.032Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yeolar.github.io"/>
     <link rel="self" href="https://yeolar.github.io/atom.xml"/>
@@ -10,6 +10,29 @@
     <logo>https://yeolar.github.io/images/avatar.png</logo>
     <icon>https://yeolar.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 互联网调研</rights>
+    <entry>
+        <title type="html"><![CDATA[一张图读懂公司成长发展史：Airbnb，Instagram，Pinterest，Angry Bird]]></title>
+        <id>https://yeolar.github.io/post/yi-zhang-tu-du-dong-gong-si-cheng-chang-fa-zhan-shi-airbnbinstagrampinterestangry-bird/</id>
+        <link href="https://yeolar.github.io/post/yi-zhang-tu-du-dong-gong-si-cheng-chang-fa-zhan-shi-airbnbinstagrampinterestangry-bird/">
+        </link>
+        <updated>2020-11-14T11:47:42.000Z</updated>
+        <content type="html"><![CDATA[<p>AirBnB，Instagram，Pinterest，Angry bird 是怎么诞生的？这些创业者都是怎么成功的？让我们先来看一下这些公司的创业历程（图片来自网络）。</p>
+<p>好像看起来，这些公司都经历过濒临死亡的边缘。所以，一帆风顺的时候不要沾沾自喜，坎坷崩溃的时候，也不要过度消极，说不定你就是下一个 AirBnB。</p>
+<h1 id="三个年轻人如何从-3-张气垫床做到全球-100-万间房">三个年轻人如何从 3 张气垫床做到全球 100 万间房？</h1>
+<figure data-type="image" tabindex="1"><img src="https://yeolar.github.io/post-images/1605354894324.jpg" alt="" loading="lazy"></figure>
+<p>Airbnb创业过程：旧金山的2个付不起房租的哥们，决定出租他们3个充气床，他们做了个简单的介绍网站，3个人来了每个人付了80美元，2哥们开始觉得这个巨棒的主意，找到前任室友当合伙人，产品上线来了2个订单，几个月后平均每周收入200美元，拿到60万元美金风投，拿到720万美金风投然后拿到1亿美金风投。</p>
+<h1 id="pinterest是这么诞生的">Pinterest是这么诞生的？</h1>
+<figure data-type="image" tabindex="2"><img src="https://yeolar.github.io/post-images/1605354986491.jpg" alt="" loading="lazy"></figure>
+<p>Pinterest创业过程：在GOOGLE里做EXCEL表格做到疯，下班之前做点闲杂项目，跟很多人聊创业想法，女朋友跟他说别叽叽歪歪直接做吧，决定从GOOGLE辞职，没有打计划，在考虑各种想法，找到了个联合创始人，做了个APP叫TOTE失败，找到第三个联合创始人，被几个风投拒绝，怕回GOOGLE丢人坚持干下去，做了50个不同版本，产品上线4个月后200个用户，给7000个不同用户亲自写EMAIL，自己母亲是Pinterest第一个忠实用户，现在2500万用户，全球世界流量排名35。</p>
+<h1 id="愤怒的小鸟是这么诞生的">愤怒的小鸟是这么诞生的？</h1>
+<figure data-type="image" tabindex="3"><img src="https://yeolar.github.io/post-images/1605354994840.jpg" alt="" loading="lazy"></figure>
+<p>愤怒的小鸟创业过程：三个哥们开了一个公司，一起开发了51个游戏，穷的差点破产，决定最后做一个就不做了，在一起想了10个不同想法，其中一个就是愤怒的小鸟。</p>
+<h1 id="instagram是这么诞生的">Instagram是这么诞生的？</h1>
+<figure data-type="image" tabindex="4"><img src="https://yeolar.github.io/post-images/1605355008121.jpg" alt="" loading="lazy"></figure>
+<p>Instagram创业过程：工作下班之后自学编程，做了一个H5的原型叫Burbn，给几个朋友试用，见了几个投资人展示给他们看，决定辞职，拿到50万美元天使投资，找到一个合伙人，做了一个巨难用的版本，决定回到原先的Burbn，决定把除了照片之外的功能全部删除，改名叫Instagram。</p>
+<figure data-type="image" tabindex="5"><img src="https://yeolar.github.io/post-images/1605355016536.jpg" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Swiftype为什么从EC2切换到真正的服务器]]></title>
         <id>https://yeolar.github.io/post/swiftype-wei-shi-me-cong-ec2-qie-huan-dao-zhen-zheng-de-fu-wu-qi/</id>
