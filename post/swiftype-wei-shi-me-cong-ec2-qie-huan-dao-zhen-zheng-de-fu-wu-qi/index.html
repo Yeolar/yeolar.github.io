@@ -1,0 +1,196 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Swiftype为什么从EC2切换到真正的服务器 | 互联网调研</title>
+<link rel="shortcut icon" href="https://yeolar.github.io/favicon.ico?v=1605353597998">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://yeolar.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Swiftype为什么从EC2切换到真正的服务器 | 互联网调研 - Atom Feed" href="https://yeolar.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Swiftype 是一家搜索解决方案提供商，目前已为超过 10 万个网站和应用程序提供搜索服务。 Oleksiy Kovyrin 是其技术运营部门的负责人。近日，他发表了一篇博文，介绍Swiftype 为什么以及如何从EC2 切换到真正的服..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://yeolar.github.io">
+  <img class="avatar" src="https://yeolar.github.io/images/avatar.png?v=1605353597998" alt="">
+  </a>
+  <h1 class="site-title">
+    互联网调研
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Swiftype为什么从EC2切换到真正的服务器
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-11-14
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p><a href="https://swiftype.com/">Swiftype</a> 是一家搜索解决方案提供商，目前已为超过 10 万个网站和应用程序提供搜索服务。 <a href="https://twitter.com/kovyrin">Oleksiy Kovyrin</a> 是其技术运营部门的负责人。近日，他发表了一篇<a href="http://highscalability.com/blog/2015/3/16/how-and-why-swiftype-moved-from-ec2-to-real-hardware.html">博文</a>，介绍Swiftype 为什么以及如何从EC2 切换到真正的服务器。</p>
+<!-- more -->
+<p>2012 年，Swiftype 创建之初选择了 Amazon Web Services 作为基础设施，因为云容易增加服务器，而又不需要自己管理硬件，并且没有前期成本。遗憾地是，虽然有些服务（如 Route53 和 S3）非常有用且稳定，但 EC2 却常常给团队带来困扰。基础设施的可靠性和稳定性决定着他们能否满足客户的性能期望和不间断服务的需求。但在 Amazon 云上，他们经常会遇到网络问题、VM 实例宕机问题、不可预见的性能衰减（可能是由同他们共享硬件的其它应用程序导致的）。这些问题占用了他们大量的时间。因此，他们决定放弃 EC2，转而使用真正的硬件。基于以往与托管供应商打交道的经验，他们决定选择 SoftLayer。</p>
+<p>在迁移之前，他们有大约 40 个 Amazon EC2 实例，每周会遇到 2 到 3 次严重的问题，有时候每天都遇到。于是，他们决定切换到真正的硬件，并且切换过程不能中断现有服务。为此，他们从以下两个方面做了充分的准备：</p>
+<ul>
+<li><strong>连接 EC2 和 SoftLayer</strong>——他们在 SoftLayer 上的数据中心里构建一个新的基础设施架构，即可以以开发级负载运行所有关键生产服务的最小服务器子集。然后，他们在新旧数据中心之间构建了一个 VPN 隧道系统，用于确保两个数据中心的组件之间可以实现透明的网络连接。</li>
+<li><strong>修改应用程序架构</strong>——他们对应用程序进行了修改，确保它们可以在原有的云环境和新建的基础设施上并行运行。然后，他们构建了一个数据复制通道，用于确保云基础设施和 SoftLayer 部署能够保持同步。</li>
+</ul>
+<p>Amazon EC2 的 Virtual Private Cloud（VPC）功能提供了一种连接 EC2 服务器和另一个私有网络的方法。但是，对于 Swiftype 的现有实例而言，他们需要停机才能以这种方式实现连接。在经过慎重地考虑和计划之后，他们意识到，真正需要跨数据中心互连的只有 MongoDB 节点，其它的都可以使用数据中心的本地服务，如 Redis 集群、搜索服务器、应用程序集群等。这样一来，需要互连的实例数量就相对较少了。因此，他们采用了一种简单但经证明稳定且有效的方式：</p>
+<ul>
+<li>每个数据中心部署一个专用的 OpenVPN 服务器，用于实现所有客户端流量到其私有网络地址的转换；</li>
+<li>每个需要连接到另一个数据中心的节点会建立一个 VPN 通道，并建立本地路由表，将所有指向另一个数据中心的连接正确地转发到那个隧道。</li>
+</ul>
+<p>接下来是修改应用程序架构，这项工作的前提是深入了解每个组件。Kovyrin 指出，对于任意复杂度的基础设施，其迁移都必须有足够的时间和工程师资源，要仔细考虑应用程序和后端服务之间建立的每一个网络连接。该过程主要包含如下步骤：</p>
+<ul>
+<li>所有无状态服务（缓存、应用程序集群、Web 层）均在两个数据中心单独部署。</li>
+<li>对于每个有状态后端服务（数据库、搜索集群、异步队列等），他们必须考虑是否需要将数据复制到另一个数据中心，或者是否不得不承担数据中心互连造成的延迟。总之，VPN 是最后选项，尽量减少数据中心之间的流量和到无法复制的主服务副本的连接。</li>
+<li>对于可以复制的服务，他们就复制，并确保应用程序服务器总是或优先使用服务的本地副本。</li>
+<li>对于无法复制的服务（如搜索后端），他们修改应用程序，使用异步工作进程和队列实现数据复制。</li>
+</ul>
+<p>经过一个多月的努力后，一切准备就绪。他们通过将 DNS TTL 调至几秒开启切换。在 EC2 流量已经很少之后，他们停用了旧数据中心，并将剩余的连接转发到新数据中心。由于 DNS 更新需要时间，这个过程持续了至少一个周的时间。</p>
+<p>从 EC2 切换到真正的硬件之后，发生了以下几个方面的变化：</p>
+<ul>
+<li>稳定性提升：严重故障次数由每周 2 到 3 次降到了每月 1 到 2 次；</li>
+<li>性能提升：所有后端服务的性能都获得了提升，IO 密集型服务（如数据库和搜索集群）比 CPU 密集型服务提升更明显，更重要的是，性能有了更强的可预见性，不会突然出现与软件活动本身无关的降低或升高；</li>
+<li>成本降低：月度成本至少降低了 50%；</li>
+<li>配置灵活度提升，但配置时间增加了。</li>
+</ul>
+<p>最后，Kovyrin 总结道：</p>
+<blockquote>
+<p>如果你的目标从一开始就是业务构建，并且没有多余的工程师资源消耗在“云税（cloud tax）”上，那么，使用真正的硬件可能是更好的选择。</p>
+</blockquote>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://yeolar.github.io/post/algolia-tong-wang-gao-ke-yong-sou-suo-api-de-kuang-bao-zhi-lu/">
+              <h3 class="post-title">
+                Algolia通往高可用搜索API的狂暴之路
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  &copy; &nbsp; <a href="https://yeolar.github.io/IR/" target="_blank">互联网调研</a>
+  <a class="rss" href="https://yeolar.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
